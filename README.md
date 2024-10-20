@@ -1,37 +1,37 @@
 
-# Windows Event Log Monitor with PagerDuty Integration
+# 🎉 Windows Event Log Monitor with PagerDuty Integration 🚨
 
 This PowerShell script monitors Windows Event Logs (**Application**, **Security**, and **System** by default) for errors, then sends alerts to PagerDuty. The alert includes detailed information, such as the event log name, host machine, current logged-in user, event source, and event message.
 
-## Features
-- Monitors Windows Event Logs (`Application`, `Security`, and `System`) for **Error** events.
-- Sends an alert to PagerDuty with details like the host, logged-in user, event source, and message.
-- Includes custom fields in PagerDuty alerts.
-- Can be configured to monitor different logs or event levels.
+## ✨ Features
+- 📝 Monitors Windows Event Logs (`Application`, `Security`, and `System`) for **Error** events.
+- 🚨 Sends an alert to PagerDuty with details like the host, logged-in user, event source, and message.
+- 🛠️ Includes custom fields in PagerDuty alerts.
+- ⚙️ Can be configured to monitor different logs or event levels.
   
-## Prerequisites
+## 🔧 Prerequisites
 
-### 1. PowerShell
+### 1. 💻 PowerShell
 Ensure that you have PowerShell installed. You can check the version by running the following command:
 
 ```powershell
 $PSVersionTable.PSVersion
 ```
 
-### 2. Administrative Privileges
+### 2. 🔐 Administrative Privileges
 - Running the script requires administrative privileges to read Windows Event Logs and register event sources.
 - To ensure the script runs as Administrator, open PowerShell as **Administrator**.
 
-### 3. PagerDuty Integration Key
+### 3. 🔑 PagerDuty Integration Key
 To use this script, you need an **Events API v2** integration key from PagerDuty:
 1. Log into your PagerDuty account.
 2. Go to **Services** > **Service Directory** > **Create New Service** or use an existing service.
 3. Add an **Events API v2** integration to the service and copy the **Integration Key**.
 
-### 4. Event Source for Triggering Errors (Optional)
+### 4. ⚠️ Event Source for Triggering Errors (Optional)
 If you plan to trigger errors for testing, you may need to register an event source (done automatically in the script).
 
-## Installation
+## 📦 Installation
 
 1. Clone the repository or download the PowerShell script.
 
@@ -48,12 +48,12 @@ $pagerDutyIntegrationKey = "YOUR_PAGERDUTY_INTEGRATION_KEY"
 
 3. Ensure you have administrative privileges to run the script.
 
-## Running the Script
+## ▶️ Running the Script
 
-### 1. Open PowerShell as Administrator
+### 1. 🛠️ Open PowerShell as Administrator
 You need administrative rights to access event logs and send alerts.
 
-### 2. Run the Script
+### 2. 🏃‍♂️ Run the Script
 Run the following command in PowerShell:
 
 ```powershell
@@ -62,7 +62,7 @@ Run the following command in PowerShell:
 
 The script will monitor the specified Windows event logs for new **Error** events and send an alert to PagerDuty whenever an error is detected.
 
-### 3. Simulate an Error Event (Optional)
+### 3. 🧪 Simulate an Error Event (Optional)
 To simulate an error event for testing purposes, you can run the following PowerShell script that generates an error in the **Application** log:
 
 ```powershell
@@ -83,27 +83,27 @@ Write-EventLog -LogName $logName -Source $eventSource -EventId $eventID -EntryTy
 Write-Host "Error event written to the Application log."
 ```
 
-### 4. Verifying PagerDuty Alerts
+### 4. ✅ Verifying PagerDuty Alerts
 Once the script detects an error in the logs, it will send an alert to PagerDuty. You can view the alert in your PagerDuty dashboard.
 
-## Configuration
+## ⚙️ Configuration
 
 You can modify the script to:
-- **Change the logs being monitored**: By default, the script monitors the `Application`, `Security`, and `System` logs, but you can modify the `$logNamesToMonitor` array to include additional logs.
+- 📝 **Change the logs being monitored**: By default, the script monitors the `Application`, `Security`, and `System` logs, but you can modify the `$logNamesToMonitor` array to include additional logs.
   
   Example:
   ```powershell
   $logNamesToMonitor = @("Application", "Security", "System", "CustomLogName")
   ```
 
-- **Change the event level**: By default, the script only monitors **Error** level events. You can modify the `$eventLevel` variable to monitor other event levels like `Warning` or `Information`.
+- 🛠️ **Change the event level**: By default, the script only monitors **Error** level events. You can modify the `$eventLevel` variable to monitor other event levels like `Warning` or `Information`.
 
   Example:
   ```powershell
   $eventLevel = "Warning"
   ```
 
-## Running the Script as a Windows Service
+## 🚀 Running the Script as a Windows Service
 
 If you'd like to run this script as a Windows service to ensure continuous monitoring, you can use **NSSM** (Non-Sucking Service Manager) to create a service.
 
@@ -148,13 +148,13 @@ If you'd like to run this script as a Windows service to ensure continuous monit
      nssm remove EventLogMonitor
      ```
 
-## License
+## 📜 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contributing
+## 🤝 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ---
 
-### Contact
+### 📧 Contact
 If you have any issues or questions, feel free to open an issue in the repository.
